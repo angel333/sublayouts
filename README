@@ -1,0 +1,46 @@
+============
+ SubLayouts
+============
+
+Allows you to use nested layouts.
+
+Installation:
+-------------
+1) Save this plugin to your plugins directory
+2) Set Controller::view to 'SubLayouts.SubLayouts' (e.g. in AppController)
+
+Usage:
+------
+Let's say you have a controller named PostsController and action edit() in it..
+.. now this:
+$this->layout = 'first>~second>third';
+$this->render('~forth>fifth>~sixth');
+.. should result in this:
++---------------------------------------------------+
+| views/layouts/first.ctp                           |
+| +-----------------------------------------------+ |
+| | views/posts/layouts/second.ctp                | |
+| | +-------------------------------------------+ | |
+| | | views/layouts/third.ctp                   | | |
+| | | +---------------------------------------+ | | |
+| | | | views/posts/layouts/forth.ctp         | | | |
+| | | | +-----------------------------------+ | | | |
+| | | | | views/layouts/fifth.ctp           | | | | |
+| | | | | +-------------------------------+ | | | | |
+| | | | | | views/posts/layouts/sixth.ctp | | | | | |
+| | | | | +-------------------------------+ | | | | |
+| | | | +-----------------------------------+ | | | |
+| | | +---------------------------------------+ | | |
+| | +-------------------------------------------+ | |
+| +-----------------------------------------------+ |
++---------------------------------------------------+
+
+Author:
+-------
+Ondrej Simek
+email: andrew@ondrejsimek.com
+web: http://ondrejsimek.com
+
+Github:
+-------
+http://github.com/angel333/sublayouts
