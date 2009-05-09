@@ -4,6 +4,9 @@ class SubLayoutsView extends View
 {
 	public function parseSubLayoutsPath ($path)
 	{
+		if (empty($path))
+			return array();
+
 		if (!strstr($path, '>'))
 			$names = array ($path);
 		else
